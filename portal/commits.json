@@ -1,0 +1,126 @@
+{
+  "section": "commits",
+  "items": [
+    {
+      "sha": "2048346f",
+      "author": "spinbitz@*",
+      "subject": "feat(mobile+infra): useDaemonHealth hook, reconnect banner, cloudflared, ADR-RUSTDESK",
+      "ts": "2026-04-23T17:31:27-06:00"
+    },
+    {
+      "sha": "ccdc6041",
+      "author": "spinbitz@*",
+      "subject": "docs(copilot): MCP Phase-0a scope — read-only V-MCP-01 surface",
+      "ts": "2026-04-22T14:09:04-06:00"
+    },
+    {
+      "sha": "379f44ca",
+      "author": "spinbitz@*",
+      "subject": "feat(VoiceScreen): upgrade to streamChat dispatch + D-level + save-note",
+      "ts": "2026-04-22T12:02:56-06:00"
+    },
+    {
+      "sha": "d8aac0d8",
+      "author": "spinbitz@*",
+      "subject": "UADL attr pass: TerminalTab.tsx + FilesTab.tsx",
+      "ts": "2026-04-22T00:22:20-06:00"
+    },
+    {
+      "sha": "02e079bd",
+      "author": "spinbitz@*",
+      "subject": "DB-MOBILE-PTY-v01: TerminalTab + ptyClient + ansiStrip + ChatScreen \\u23a8 Term tab",
+      "ts": "2026-04-21T23:30:27-06:00"
+    },
+    {
+      "sha": "13e24d0e",
+      "author": "spinbitz@*",
+      "subject": "feat(mobile): FilesTab + ChatScreen Files pane — Addendum A Task57",
+      "ts": "2026-04-21T23:19:51-06:00"
+    },
+    {
+      "sha": "731cc335",
+      "author": "spinbitz@*",
+      "subject": "çq[83] daemon.ts: DEFAULT_HOST → fabric.golem818.dev",
+      "ts": "2026-04-21T19:23:20-06:00"
+    },
+    {
+      "sha": "f733363d",
+      "author": "spinbitz@*",
+      "subject": "çq[81] data-o8a-* pass: complete Markdown.tsx attribute coverage",
+      "ts": "2026-04-22T00:54:27Z"
+    },
+    {
+      "sha": "1fc87ae8",
+      "author": "spinbitz@*",
+      "subject": "chore(mobile): DB-MOBILE-FANO-PANE-v01 Phase C — Atlas debt comment + TS fix",
+      "ts": "2026-04-20T19:28:00-06:00"
+    },
+    {
+      "sha": "f6356ee1",
+      "author": "spinbitz@*",
+      "subject": "fix(aaf-daemon): add tower-http CORS layer — allow-origin: *",
+      "ts": "2026-04-20T18:22:45-06:00"
+    },
+    {
+      "sha": "d76571e0",
+      "author": "spinbitz@*",
+      "subject": "feat(aaf-daemon): add GET /api/gde/state mock stub + fix backslash-bang macros in main.rs",
+      "ts": "2026-04-20T18:07:50-06:00"
+    },
+    {
+      "sha": "cc42b68e",
+      "author": "spinbitz@*",
+      "subject": "feat(mobile): DB-MOBILE-FANO-PANE-v01 Phase B — GDE state, Capture σ3, Nodes diag",
+      "ts": "2026-04-20T17:55:10-06:00"
+    },
+    {
+      "sha": "049d54ae",
+      "author": "spinbitz@*",
+      "subject": "feat(mobile): DB-MOBILE-FANO-PANE-v01 Phase A — σ-slot tab topology",
+      "ts": "2026-04-20T17:43:19-06:00"
+    },
+    {
+      "sha": "c5dfd64b",
+      "author": "spinbitz@*",
+      "subject": "fix: exclude tauri-mobile from root workspace (Android build requires isolated workspace)",
+      "ts": "2026-04-20T17:30:42-06:00"
+    },
+    {
+      "sha": "3c214c75",
+      "author": "spinbitz@*",
+      "subject": "chore: extend .gitignore — node_modules, Cargo.lock, gen/, icons/, IMPLEMENTATION_SUMMARY",
+      "ts": "2026-04-20T15:09:14-06:00"
+    },
+    {
+      "sha": "3b35c627",
+      "author": "spinbitz@*",
+      "subject": "feat: fog MVP complete — multi-pane ChatScreen, components, aaf-daemon scaffold, PSF scripts",
+      "ts": "2026-04-20T15:08:55-06:00"
+    },
+    {
+      "sha": "f7a21ca5",
+      "author": "spinbitz@*",
+      "subject": "fix: TS errors — vite/client ref, remove unused import, d_level in vault_context only",
+      "ts": "2026-04-20T15:08:25-06:00"
+    },
+    {
+      "sha": "84546588",
+      "author": "spinbitz@*",
+      "subject": "feat: fog infrastructure MVP — Chat screen, Nodes mesh, PSF AI box setup",
+      "ts": "2026-04-16T22:16:30Z"
+    },
+    {
+      "sha": "fbdf1d1e",
+      "author": "spinbitz@*",
+      "subject": "feat: scaffold apps/tauri-mobile — Tauri v2 Android+iOS capture app",
+      "ts": "2026-04-16T16:05:56-06:00"
+    },
+    {
+      "sha": "22282730",
+      "author": "spinbitz@*",
+      "subject": "ci: debug lockfile + switch to npm install",
+      "ts": "2026-04-16T14:52:44-06:00"
+    }
+  ],
+  "generated_at": "2026-04-23T23:31:39Z"
+}

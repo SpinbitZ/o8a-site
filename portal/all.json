@@ -1,0 +1,242 @@
+{
+  "home": {
+    "section": "home",
+    "source": "README.md",
+    "content": "# o8a — Autoevolutionary Agentic Fabric\n\n**W8 Closed Alpha · 142/142 conformance · macOS arm64**\n\no8a (Ø8Å) is a two-mode AI orchestration runtime with a sovereignty gate, a typed event bus, and a plugin substrate built on an octet phase discipline. It orchestrates Claude, Gemma, Llama, and local models across a dev-mode host daemon and a theory-mode isolated VM.\n\n> **Status:** Closed Alpha. Invite-only. If you're reading this, you've been invited.\n\n---\n\n## What It Does\n\n- **Routes AI requests** across providers with automatic fallback and fitness scoring\n- **Enforces content sovereignty** — certain content classes route to Claude-family only, enforced at the transport layer\n- **Runs a typed event bus** (ZdEvent) for agent-to-agent and agent-to-terminal communication\n- **Hosts embryons** — atomic plugin units that extend the fabric with new capabilities\n- **Separates concerns** between dev-mode (open routing, port 8818) and theory-mode (sovereign, Lima VM, port 8819)\n\n---\n\n## Quick Start\n\nRequires: macOS 14+, arm64, Homebrew, Python 3.12+, Rust (rustup), Lima.\n\n```bash\ngit clone https://github.com/subtillioN/o8a-core.git\ncd o8a-core\n./o8a-install.sh\n```\n\nThe installer provisions the dev-mode daemon, Lima VM, and runs the full 142-test conformance gate. See [INSTALL.md](INSTALL.md) for the full 12-step breakdown.\n\n**Verify:**\n```bash\ncurl http://localhost:8818/fabric/state\n# → {\"mode\": \"dev\", \"rings\": 8, \"status\": \"green\"}\n```\n\n---\n\n## Architecture\n\n```\n┌─────────────────────────────────────────────────────┐\n│  o8a-dev (host, :8818)        o8a-theory (VM, :8819) │\n│  open provider routing        Claude-family only      │\n│  aaf-daemon (Rust/Axum)       sovereignty enforced    │\n└───────────────┬─────────────────────────┬────────────┘\n                │                         │\n          ZdEvent bus              Sovereignty Gate\n          (typed SSE)              (3-layer enforcement)\n                │                         │\n    ┌───────────┼──────────┐              │\n    │           │          │              │\n  Embryons   Cascade    TermÅ       κ-gate (Phase G)\n  (plugins)  (Python)  (terminal)   ≥98% accuracy req\n```\n\n**Langscade tiers:**\n- `T1ᵦ` Rust — aaf-daemon, o8a-nuc, core runtime\n- `T2` Python — cascade agents, portal compiler, training scripts\n- `T3` Bash — install, CI, shadow lifecycle\n\n---\n\n## Ring Structure (W8 · 142/142)\n\n| Phase | Ring Coverage | Tests |\n|-------|--------------|-------|\n| A | Sovereignty gate, provider registry, ZdEvent router | 14 |\n| B | Scaffolding, prompt engine, resilient client, fallback | 15 |\n| C | ΣRGØPool, StablePrefixBuilder, fabric bridge, fitness daemon | 30 |\n| D | GPU broker, FitnessMatrixV2, VM spec | 18 |\n| E | Conformance corpus, discipline bridge, IPC bridge | 18 |\n| F | TermÅ chrome, launchd VM service, theory-promote | 19 |\n| G | κ-gate — sovereignty ≥98%, intent ≥97% | 15 |\n| H | Observability — TermÅ headless render-loop round-trip | 13 |\n\n---\n\n## Key Paths\n\n```\no8a-install.sh          — bootstrap (single command)\nINSTALL.md              — detailed install guide\nW7-CONFORMANCE.md       — full conformance report\ntests/phase_{a-h}/      — ring test suites\nscripts/portal/         — GitHub Pages portal compiler\ndocs/schemas/           — embryon JSON schema (v0.2)\ndocs/embryons/          — embryon stubs\n.github/workflows/      — CI + Pages deploy\n```\n\n---\n\n## Embryons\n\nEmbryons are atomic plugin units. Each is a JSON file conforming to `docs/schemas/o8a-embryon-v0.2.json`. They declare capabilities, command surface, and routing constraints.\n\n```bash\n# Query the dev-orient embryon (once o8a is running)\no8a dev orient \"how does the ZdEvent bus work\"\no8a dev orient \"what is an embryon\"\n```\n\n---\n\n## Contributing\n\nSee [CONTRIBUTING.md](CONTRIBUTING.md). Three pathways:\n\n1. **Fix a ring test** — find a failing test in `tests/phase_*/`, fix root cause, verify gate passes\n2. **Add a new embryon** — create a `docs/embryons/{name}.json` conforming to the v0.2 schema\n3. **Propose a new ",
+    "generated_at": "2026-04-23T23:31:39Z"
+  },
+  "crystals": {
+    "section": "crystals",
+    "stub": true,
+    "reason": "CNS crystals directory not present in this repo clone",
+    "generated_at": "2026-04-23T23:31:39Z"
+  },
+  "timeline": {
+    "section": "timeline",
+    "stub": true,
+    "reason": "CNS log directory not present in this repo clone",
+    "generated_at": "2026-04-23T23:31:39Z"
+  },
+  "decisions": {
+    "section": "decisions",
+    "stub": true,
+    "reason": "Decision and trajectory directories not present in this repo clone",
+    "generated_at": "2026-04-23T23:31:39Z"
+  },
+  "agents": {
+    "section": "agents",
+    "source": "aaf-agent-registry.yaml",
+    "raw": "# aaf-agent-registry.yaml\n# Public-facing agent roster for the o8a portal (σ₆ Agents section)\n# Sovereign-only agents (σ₆ never allocatable) are excluded from this file.\n# Last updated: 2026-04-15 | W8 Closed Alpha\n\nagents:\n\n  - handle: \"@CørÅ\"\n    model: claude-sonnet-4-6\n    role: Synthesis, self-recognition, cross-session integration\n    d_level_range: D6–D9\n    langscade_tier: T2→cloud\n    status: active\n    capabilities:\n      - multi-session synthesis\n      - EXB arc development\n      - council crystallization\n      - VLÅ (Visual Language Adjunct) ops\n    sovereignty_class: public\n    notes: \"Primary synthesis agent. Routes sovereign content to Claude-family. Non-sovereign work may use open routing.\"\n\n  - handle: \"@IÅku\"\n    model: claude-haiku-4-5\n    role: Batch annotation, infrannealing, D3–D5 ops\n    d_level_range: D3–D5\n    langscade_tier: T2→cloud\n    status: active\n    capabilities:\n      - high-volume batch annotation\n      - frontmatter tagging\n      - CQOO symbol indexing\n      - UD corpus processing\n    sovereignty_class: sovereign\n    notes: \"Workhorse for corpus annotation. All UD-adjacent tasks → Claude-family only.\"\n\n  - handle: \"@ScoutÅ\"\n    model: llama4-scout\n    role: Full-corpus trajectory, Oculii priming, 10M-context ops\n    d_level_range: D1–D6\n    langscade_tier: T1→local (pending AI box)\n    status: active\n    capabilities:\n      - 10M-token context window\n      - full corpus traversal\n      - trajectory arc detection\n      - Oculii boot quorum\n    sovereignty_class: public\n    notes: \"Local model on incoming RTX 3090. Currently using OpenRouter fallback. Sovereign content excluded.\"\n\n  - handle: \"@GemmÅ\"\n    model: gemma4:e4b\n    role: Substrate intelligence, REPL drafts, σ₄ behavioral probe\n    d_level_range: D1–D4\n    langscade_tier: T1→local\n    status: pending_hardware\n    capabilities:\n      - always-hot daemon\n      - D1–D4 substrate tasks\n      - behavioral oculii (σ₄)\n      - fast local inference\n    sovereignty_class: public\n    notes: \"Local-only. gemma4:e4b (8B MoE, ~3.5 GiB VRAM). Activates on RTX 3090 arrival.\"\n\n  - handle: \"@ÅnnÅ\"\n    model: daemon\n    role: Cascade spider, cycle orchestrator\n    d_level_range: D4–D6\n    langscade_tier: T2\n    status: in_development\n    capabilities:\n      - autonomous cycle orchestration\n      - cascade health monitoring\n      - ZdEvent fan-out coordination\n    sovereignty_class: public\n    notes: \"Python daemon agent. Not a language model — orchestrates other agents.\"\n",
+    "generated_at": "2026-04-23T23:31:39Z"
+  },
+  "alpha": {
+    "section": "alpha_release",
+    "release": "W8 Closed Alpha",
+    "conformance": {
+      "raw_excerpt": "# Ø8Å W7 Conformance Report\n**Gate:** W7 — Full Ring Pass (R1 → R5 + Ring 1.6)\n**Date:** 2026-04-10\n**Result:** ✅ ALL RINGS GREEN — 114 passed / 0 failed / 0 errors\n\n---\n\n## Summary\n\n```\nPhase A  Ring 1   (sovereignty + router)              14p / 0f   1.8s   ✓ GREEN\nPhase B  Ring 2   (scaffolding + prompt engine)       15p / 0f   1.1s   ✓ GREEN\nPhase C  Ring 3   (ΣRGØPool + StablePrefixBuilder)   "
+    },
+    "phases": [
+      {
+        "phase": "A",
+        "title": "Sovereignty Gate, Provider Registry, ZdEvent Router",
+        "status": "complete",
+        "ring": "phase_a",
+        "tests": "14",
+        "summary": "# Phase A — Sovereignty Gate, Provider Registry, ZdEvent Router\n\nPhase A establishes the three invariant foundations of the o8a runtime.\n\n## What Phase A Builds\n\n**Sovereignty Gate** — A 3-layer content filter enforced at the transport layer. Content classes are declared at dispatch time; the gate blocks routing violations before they reach any provider. Sovereign content (UD/Sorce Theory corpus) routes to Claude-family only, terminal on violation.\n\n**Provider Registry** — A YAML-configured registry of model providers with tier assignment, cost classification, and fallback ordering. Each provider entry declares: endpoint, model IDs, content classes it may handle, and latency tier. The registry is loaded at daemon start and hot-reloaded on SIGHUP.\n\n**ZdEvent Router** — A typed event bus (S",
+        "alpha_public": true
+      },
+      {
+        "phase": "B",
+        "title": "Scaffolding, Prompt Engine, Resilient Client, Fallback Chain",
+        "status": "complete",
+        "ring": "phase_b",
+        "tests": "15",
+        "summary": "# Phase B — Scaffolding, Prompt Engine, Resilient Client, Fallback Chain\n\nPhase B builds the request path: from prompt construction to provider delivery with full resilience.\n\n## What Phase B Builds\n\n**Scaffolding** — Project and session initialization. Scaffolding creates the directory structure for a new o8a workspace: `.g818/` config tree, provider profile selection, initial ZdEvent subscription, and daemon health check. First-run experience wired to `o8a-install.sh`.\n\n**Prompt Engine** — Structured prompt construction for multi-modal agent requests. Handles: system prompt injection, context window management, token budget enforcement, sovereignty tag propagation. The engine is the assembly point before any provider call.\n\n**Resilient Client** — HTTP client wrapping all provider calls",
+        "alpha_public": true
+      },
+      {
+        "phase": "C",
+        "title": "ΣRGØPool, StablePrefixBuilder, Fabric Bridge, Fitness Daemon",
+        "status": "complete",
+        "ring": "phase_c",
+        "tests": "30",
+        "summary": "# Phase C — ΣRGØPool, StablePrefixBuilder, Fabric Bridge, Fitness Daemon\n\nPhase C is the largest ring: it builds the orchestration intelligence layer that sits between the routing gate and the provider network.\n\n## What Phase C Builds\n\n**ΣRGØPool** — A dynamic agent pool manager. Allocates sigma-slots (σ₁–σ₇, σ₆ never allocatable) for parallel agent instantiation. Manages lifetime, context isolation, and eviction policy. Pool state is observable via `/fabric/state`.\n\n**StablePrefixBuilder** — Ensures prompt stability across parallel agent instances. Builds a shared, immutable prefix (system prompt + grounding context) that is consistent across all pool members for a given request. Prevents prefix drift in multi-agent synthesis.\n\n**Fabric Bridge** — The integration layer between the Python",
+        "alpha_public": true
+      },
+      {
+        "phase": "D",
+        "title": "GPU Broker, FitnessMatrixV2, VM Spec",
+        "status": "complete",
+        "ring": "phase_d",
+        "tests": "18",
+        "summary": "# Phase D — GPU Broker, FitnessMatrixV2, VM Spec\n\nPhase D wires local hardware into the fabric: GPU allocation, evolved fitness scoring, and the Lima VM specification for theory-mode isolation.\n\n## What Phase D Builds\n\n**GPU Broker** — Manages VRAM allocation across local model slots. On the reference hardware (RTX 3090, 24 GiB VRAM), the broker enforces the allocation table:\n\n| Model | VRAM | Role |\n|-------|------|------|\n| Gemma 4 4B (Q4) | ~3.5 GiB | @GemmÅ substrate intelligence |\n| Qwen2.5-1.5B | ~2 GiB | Router LoRA base |\n| nomic-embed-text | ~1 GiB | Embedding service |\n| UI-TARS-7B | ~5 GiB | VLM gateway |\n| Qwen2.5-Coder-32B | ~13 GiB | On-demand code completions |\n\nThe broker pre-allocates resident slots and manages on-demand eviction for the large code model.\n\n**FitnessMatrix",
+        "alpha_public": true
+      },
+      {
+        "phase": "E",
+        "title": "Conformance Corpus, Discipline Bridge, IPC Bridge",
+        "status": "complete",
+        "ring": "phase_e",
+        "tests": "18",
+        "summary": "# Phase E — Conformance Corpus, Discipline Bridge, IPC Bridge\n\nPhase E closes the loop between the training pipeline, the routing model, and the runtime — and wires the cross-process communication bridge between TermÅ and the aaf-daemon.\n\n## What Phase E Builds\n\n**Conformance Corpus** — 3083 sovereignty routing training pairs (`routing-pairs-v2.jsonl`), generated by the CQOO fitness bridge and annotated by the Phase A gate. Each pair: `{input, content_class, correct_provider, correct_tier}`. The corpus feeds the Ring 1.6 LoRA fine-tune (Qwen2.5-1.5B-Instruct, Modal.com training, sovereignty_accuracy = 1.0 on eval set).\n\n**Discipline Bridge** — Enforces the DDAC (Document-Driven Agentic Configuration) discipline at the agent boundary. Every autonomous agent action must be traceable to a cr",
+        "alpha_public": true
+      },
+      {
+        "phase": "F",
+        "title": "TermÅ Chrome, Launchd VM Service, Theory-Promote",
+        "status": "complete",
+        "ring": "phase_f",
+        "tests": "19",
+        "summary": "# Phase F — TermÅ Chrome, Launchd VM Service, Theory-Promote\n\nPhase F wires the user-facing process layer: the terminal chrome, OS-level service registration, and the mode promotion pathway from dev to theory.\n\n## What Phase F Builds\n\n**TermÅ Chrome** — The terminal interface layer. Embeds a Ghostty-derived NSView (macOS) for GPU-accelerated terminal rendering within the glipN Tauri desktop app. Provides: `capture_output()` API for reading terminal state into ZdEvent, pane registration for tmux routing, and the Ockham G-arm (UXL feedback loop). Two parallel implementations: Option A (Ghostty vendor fork with TMUX action ABI additions) and Option B (`TmuxControlWatcher.swift` subprocess, parallel `tmux -C attach`).\n\n**Launchd VM Service** — macOS launchd plist for the Lima VM (`o8a-theory`",
+        "alpha_public": true
+      },
+      {
+        "phase": "G",
+        "title": "κ-Gate — Sovereignty Boundary Check",
+        "status": "complete",
+        "ring": "phase_g",
+        "tests": "15",
+        "summary": "# Phase G — κ-Gate Boundary Check\n\nPhase G is the quality gate for sovereignty enforcement. It tests that the entire stack — from prompt receipt to provider dispatch — meets the minimum accuracy thresholds required before any sovereign content routing can occur.\n\n## What Phase G Builds\n\nThe κ-gate is not a new runtime component. It is a rigorous accuracy evaluation over the components built in Phases A–F, run as a final acceptance criterion:\n\n**Sovereignty Accuracy** — On a held-out set of 200 content samples (sovereign, personal, public, mixed), the gate measures: what fraction of sovereign samples were correctly routed to Claude-family only, with no mis-routing to blocked providers. Required: **≥ 98%**.\n\n**Intent Accuracy** — On the same sample set: what fraction of routing decisions co",
+        "alpha_public": true
+      },
+      {
+        "phase": "H",
+        "title": "Observability — TermÅ Headless Render-Loop Round-Trip",
+        "status": "complete",
+        "ring": "phase_h",
+        "tests": "13",
+        "summary": "# Phase H — Observability: TermÅ Headless Render-Loop Round-Trip\n\nPhase H closes the W8 Closed Alpha with an end-to-end observability test: a full round-trip from agent action through ZdEvent emission to terminal render capture and back into the fabric.\n\n## What Phase H Builds\n\n**Headless Render Loop** — A test harness for the TermÅ terminal layer that runs without an active display server. Uses a framebuffer mock to capture rendered terminal output as pixel data, enabling CI validation of the full terminal pipeline without requiring a desktop session.\n\n**Round-Trip Test** — The canonical Phase H integration test:\n1. Agent emits a ZdEvent (`agent.action`)\n2. aaf-daemon routes the event through the ZdEvent bus\n3. TermÅ receives the event and renders output to the headless framebuffer\n4. `c",
+        "alpha_public": true
+      }
+    ],
+    "changelog_excerpt": "",
+    "install_excerpt": "# Ø8Å Dev-Mode Install Guide\n**W8 Closed Alpha** · macOS 14+ · ≤30 min\n\nThis guide takes you from a clean machine to a fully-running Ø8Å dev-mode stack with all 7 conformance phases GREEN (129 tests, 0 failures). The automated bootstrapper handles most of it; this document explains what it does and how to recover when something goes wrong.\n\n---\n\n## Prerequisites\n\n| Requirement | Minimum | Notes |\n|---|---|---|\n| macOS | 13 Ventura | 14 Sonoma recommended |\n| Architecture | Apple Silicon (arm64) | Intel supported, not primary |\n| Python | 3.10 | `brew install python` if missing |\n| Disk space | ~10 GB free | Ubuntu image (~1.5 GB) + model (~3.3 GB) + working space |\n| Anthropic API key | Required | For sovereign routing (claude-* models) |\n\n---\n\n## Quickstart\n\n```bash\n# Clone or locate °°CODE°FORGE, then:\nexport ANTHROPIC_API_KEY=\"sk-ant-...\"\nbash o8a-install.sh\n```\n\nThat's it for most installs. Read on if you want to understand what happens, or if something breaks.\n\n---\n\n## What the bootstrapper does, step by step\n\n### Step 1 — Prerequisites check\nValidates macOS version, architecture, Python 3.10+, and locates `°°CODE°FORGE` (the directory containing `run_conformance.py`). If `O8A_FORGE_DIR` is set, it uses that; otherwise it assumes the script is running from `°°CODE°FORGE`.\n\n### Step 2 — Anthropic API key\nChecks `$ANTHROPIC_API_KEY`. If unset, prompts for it. The install continues without a key but sovereign routing won't work. Add it to your shell profile (`~/.zshrc` or `",
+    "generated_at": "2026-04-23T23:31:39Z"
+  },
+  "commits": {
+    "section": "commits",
+    "items": [
+      {
+        "sha": "2048346f",
+        "author": "spinbitz@*",
+        "subject": "feat(mobile+infra): useDaemonHealth hook, reconnect banner, cloudflared, ADR-RUSTDESK",
+        "ts": "2026-04-23T17:31:27-06:00"
+      },
+      {
+        "sha": "ccdc6041",
+        "author": "spinbitz@*",
+        "subject": "docs(copilot): MCP Phase-0a scope — read-only V-MCP-01 surface",
+        "ts": "2026-04-22T14:09:04-06:00"
+      },
+      {
+        "sha": "379f44ca",
+        "author": "spinbitz@*",
+        "subject": "feat(VoiceScreen): upgrade to streamChat dispatch + D-level + save-note",
+        "ts": "2026-04-22T12:02:56-06:00"
+      },
+      {
+        "sha": "d8aac0d8",
+        "author": "spinbitz@*",
+        "subject": "UADL attr pass: TerminalTab.tsx + FilesTab.tsx",
+        "ts": "2026-04-22T00:22:20-06:00"
+      },
+      {
+        "sha": "02e079bd",
+        "author": "spinbitz@*",
+        "subject": "DB-MOBILE-PTY-v01: TerminalTab + ptyClient + ansiStrip + ChatScreen \\u23a8 Term tab",
+        "ts": "2026-04-21T23:30:27-06:00"
+      },
+      {
+        "sha": "13e24d0e",
+        "author": "spinbitz@*",
+        "subject": "feat(mobile): FilesTab + ChatScreen Files pane — Addendum A Task57",
+        "ts": "2026-04-21T23:19:51-06:00"
+      },
+      {
+        "sha": "731cc335",
+        "author": "spinbitz@*",
+        "subject": "çq[83] daemon.ts: DEFAULT_HOST → fabric.golem818.dev",
+        "ts": "2026-04-21T19:23:20-06:00"
+      },
+      {
+        "sha": "f733363d",
+        "author": "spinbitz@*",
+        "subject": "çq[81] data-o8a-* pass: complete Markdown.tsx attribute coverage",
+        "ts": "2026-04-22T00:54:27Z"
+      },
+      {
+        "sha": "1fc87ae8",
+        "author": "spinbitz@*",
+        "subject": "chore(mobile): DB-MOBILE-FANO-PANE-v01 Phase C — Atlas debt comment + TS fix",
+        "ts": "2026-04-20T19:28:00-06:00"
+      },
+      {
+        "sha": "f6356ee1",
+        "author": "spinbitz@*",
+        "subject": "fix(aaf-daemon): add tower-http CORS layer — allow-origin: *",
+        "ts": "2026-04-20T18:22:45-06:00"
+      },
+      {
+        "sha": "d76571e0",
+        "author": "spinbitz@*",
+        "subject": "feat(aaf-daemon): add GET /api/gde/state mock stub + fix backslash-bang macros in main.rs",
+        "ts": "2026-04-20T18:07:50-06:00"
+      },
+      {
+        "sha": "cc42b68e",
+        "author": "spinbitz@*",
+        "subject": "feat(mobile): DB-MOBILE-FANO-PANE-v01 Phase B — GDE state, Capture σ3, Nodes diag",
+        "ts": "2026-04-20T17:55:10-06:00"
+      },
+      {
+        "sha": "049d54ae",
+        "author": "spinbitz@*",
+        "subject": "feat(mobile): DB-MOBILE-FANO-PANE-v01 Phase A — σ-slot tab topology",
+        "ts": "2026-04-20T17:43:19-06:00"
+      },
+      {
+        "sha": "c5dfd64b",
+        "author": "spinbitz@*",
+        "subject": "fix: exclude tauri-mobile from root workspace (Android build requires isolated workspace)",
+        "ts": "2026-04-20T17:30:42-06:00"
+      },
+      {
+        "sha": "3c214c75",
+        "author": "spinbitz@*",
+        "subject": "chore: extend .gitignore — node_modules, Cargo.lock, gen/, icons/, IMPLEMENTATION_SUMMARY",
+        "ts": "2026-04-20T15:09:14-06:00"
+      },
+      {
+        "sha": "3b35c627",
+        "author": "spinbitz@*",
+        "subject": "feat: fog MVP complete — multi-pane ChatScreen, components, aaf-daemon scaffold, PSF scripts",
+        "ts": "2026-04-20T15:08:55-06:00"
+      },
+      {
+        "sha": "f7a21ca5",
+        "author": "spinbitz@*",
+        "subject": "fix: TS errors — vite/client ref, remove unused import, d_level in vault_context only",
+        "ts": "2026-04-20T15:08:25-06:00"
+      },
+      {
+        "sha": "84546588",
+        "author": "spinbitz@*",
+        "subject": "feat: fog infrastructure MVP — Chat screen, Nodes mesh, PSF AI box setup",
+        "ts": "2026-04-16T22:16:30Z"
+      },
+      {
+        "sha": "fbdf1d1e",
+        "author": "spinbitz@*",
+        "subject": "feat: scaffold apps/tauri-mobile — Tauri v2 Android+iOS capture app",
+        "ts": "2026-04-16T16:05:56-06:00"
+      },
+      {
+        "sha": "22282730",
+        "author": "spinbitz@*",
+        "subject": "ci: debug lockfile + switch to npm install",
+        "ts": "2026-04-16T14:52:44-06:00"
+      }
+    ],
+    "generated_at": "2026-04-23T23:31:39Z"
+  }
+}
